@@ -72,11 +72,22 @@ const getByName = async (req, res, next) => {
     return res.status(400).json(`Error while filtering by altitude: ${error}`)
   }
 }
+
+const getById = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const mountains = await Mountain.find({ id })
+    return res.status(200).json(mountains)
+  } catch (error) {
+    return res.status(400).json(`Error while filtering by altitude: ${error}`)
+  }
+}
 module.exports = {
   getMountains,
   postMountain,
   updateMountain,
   deleteMountain,
   getByAltitud,
-  getByName
+  getByName,
+  getById
 }

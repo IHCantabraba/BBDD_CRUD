@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "concejos": "node extractConcejos.js"
+    "concejosSeeds": "node ./src/utils/seeds/concejos.seeds.js",
+    "mountainSeeds": "node ./src/utils/seeds/mountain.seeds.js"
   },
   "keywords": [],
   "author": "",
