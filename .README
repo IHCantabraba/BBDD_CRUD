@@ -1,0 +1,4 @@
+## Populating BBDD
+
+execute node run concejosSeeds
+execute node run mountainSeeds
