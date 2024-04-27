@@ -5,7 +5,7 @@
 
 ## Controllers
 
-# concejos
+### concejos
 
 GET concejos
 GET By Name
@@ -13,7 +13,7 @@ POST concejo
 PUT concejo
 DEL concejo
 
-# mountains
+### mountains
 
 GET Mountains
 GET By altitude
