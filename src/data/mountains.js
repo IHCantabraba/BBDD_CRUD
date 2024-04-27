@@ -2,7 +2,7 @@ const mountains = [
   {
     name: 'Tiatordos',
     altitud: 1951,
-    concejo: '662d7ca97f4f60fc9c515f0a',
+    concejo: '',
     img: 'url',
     belongs2Beauty: true,
     trackAvailable: false,
@@ -11,7 +11,7 @@ const mountains = [
   {
     name: 'Remelende',
     altitud: 1888,
-    concejo: '662d7ca97f4f60fc9c515f0a',
+    concejo: '',
     img: 'url',
     belongs2Beauty: true,
     trackAvailable: false,
@@ -20,7 +20,7 @@ const mountains = [
   {
     name: 'Urriellu',
     altitud: 2519,
-    concejo: '662d7ca97f4f60fc9c515f0b',
+    concejo: '',
     img: 'url',
     belongs2Beauty: true,
     trackAvailable: false,
@@ -29,7 +29,7 @@ const mountains = [
   {
     name: 'Torre Cerredo',
     altitud: 2650,
-    concejo: '662d7ca97f4f60fc9c515f0b',
+    concejo: '',
     img: 'url',
     belongs2Beauty: true,
     trackAvailable: false,
