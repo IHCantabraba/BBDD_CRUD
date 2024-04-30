@@ -14,8 +14,8 @@ const mountainSchema = new mongoose.Schema(
     belongs2Beauty: { type: Boolean, required: true },
     trackAvailable: { type: Boolean, required: true },
     // trackfile: [{ type: mongoose.Types.ObjectID }],
-    trackCategory: ['hike, sky touring, climb']
-  },
+    trackCategory: {type:String, required: [true, ' Choose one or more of: hike, sky touring, climb']},
+  
   { timestamps: true, collection: 'mountains' /* not required */ }
 )
 /*                                 model        schema    BBDD collection name */
