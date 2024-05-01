@@ -1,6 +1,7 @@
 ## Populating BBDD
 
-1. npde index.js will call dataSeed fuction to populate the BBDD./n Each mountain will have in "concejo" key the complete schema info of concejo
+1. node index.js will call dataSeed fuction to populate the BBDD.
+   Each mountain will have in "concejo" key the complete schema info of concejo
 
 ## Controllers
 
