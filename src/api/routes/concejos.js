@@ -10,7 +10,7 @@ const {
 const concejoRoutes = require('express').Router()
 /* crear las rutas para los controladores */
 
-concejoRoutes.get('/getByName/:name', getByName)
+concejoRoutes.get('/:name', getByName)
 concejoRoutes.get('/', getConcejos)
 concejoRoutes.post('/', postConcejo)
 concejoRoutes.put('/:id', updateConcejo)

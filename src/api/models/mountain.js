@@ -4,19 +4,22 @@ const mountainSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     altitud: { type: Number, required: true, trim: true },
-    // concejo: { type: String, required: true, trim: true },
-    concejo: {
-      type: mongoose.Types.ObjectId,
-      required: false,
-      ref: 'concejos'
-    },
+    concejo: { type: String, ref: 'concejos' },
     img: { type: String },
     belongs2Beauty: { type: Boolean, required: true },
     trackAvailable: { type: Boolean, required: true },
-    // trackfile: [{ type: mongoose.Types.ObjectID }],
-    trackCategory: {type:String, required: [true, ' Choose one or more of: hike, sky touring, climb']},
-  
-  { timestamps: true, collection: 'mountains' /* not required */ }
+    trackCategory: [
+      {
+        type: String,
+        required: true,
+        enum: ['hike', 'climb', 'sky touring']
+      }
+    ]
+  },
+  {
+    timestamps: true,
+    collection: 'mountains' /* not required */
+  }
 )
 /*                                 model        schema    BBDD collection name */
 const Mountain = mongoose.model('mountains', mountainSchema, 'mountains')

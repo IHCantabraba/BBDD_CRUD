@@ -1,7 +1,6 @@
 ## Populating BBDD
 
-1. execute command: node run concejosSeeds
-2. execute command: node run mountainSeeds
+1. npde index.js will call dataSeed fuction to populate the BBDD./n Each mountain will have in "concejo" key the complete schema info of concejo
 
 ## Controllers
 

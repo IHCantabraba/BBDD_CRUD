@@ -2,7 +2,7 @@ const Concejo = require('../models/concejos')
 /* GET controller */
 const getConcejos = async (req, res, next) => {
   try {
-    const allConcejos = await Concejo.find().populate('mountains')
+    const allConcejos = await Concejo.find()
     return res.status(200).json(allConcejos)
   } catch (error) {
     return res.status(400).json(`Error while reading Concejos: ${error}`)
@@ -55,7 +55,7 @@ const deleteConcejo = async (req, res, next) => {
 const getByName = async (req, res, next) => {
   try {
     const { name } = req.params
-    const concejos = await Concejo.find({ name })
+    const concejos = await Concejo.find({ name }).populate('mountains')
     return res.status(200).json(concejos)
   } catch (error) {
     return res.status(400).json(`Error while filtering by name: ${error}`)

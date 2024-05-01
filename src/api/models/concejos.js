@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const concejoSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
-    mountains: [{ type: mongoose.Types.ObjectId, ref: 'mountains' }]
+    capital: { type: String, required: false, trim: true }
   },
   { timestamps: true, collection: 'concejos' /* not required */ }
 )

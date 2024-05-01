@@ -8,6 +8,11 @@ const concejos = [
     name: 'Cabrales',
     capital: 'Arenas de Cabrales',
     mountains: []
+  },
+  {
+    name: 'Ponga',
+    capital: 'San Juan de Beleño',
+    mountains: []
   }
 ]
 

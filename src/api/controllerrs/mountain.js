@@ -66,13 +66,22 @@ const getByAltitud = async (req, res, next) => {
 const getByName = async (req, res, next) => {
   try {
     const { name } = req.params
-    const mountains = await Mountain.find({ name })
+    const mountains = await Mountain.find({ name }).populate('concejos')
     return res.status(200).json(mountains)
   } catch (error) {
-    return res.status(400).json(`Error while filtering by altitude: ${error}`)
+    return res.status(400).json(`Error while filtering by name: ${error}`)
   }
 }
-
+const getMoutainByConcejo = async (req, res, next) => {
+  try {
+    const { concejo } = req.params
+    const selectedMountains = await Mountain.find({ concejo })
+    console.log(`Selected Mountain is: ${selectedMountains}`)
+    return json(selectedMountains._id)
+  } catch (error) {
+    return res.status(400).json(`Error while filtering by concejo: ${error}`)
+  }
+}
 const getById = async (req, res, next) => {
   try {
     const { id } = req.params
@@ -89,5 +98,6 @@ module.exports = {
   deleteMountain,
   getByAltitud,
   getByName,
-  getById
+  getById,
+  getMoutainByConcejo
 }
