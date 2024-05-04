@@ -55,7 +55,7 @@ const deleteConcejo = async (req, res, next) => {
 const getByName = async (req, res, next) => {
   try {
     const { name } = req.params
-    const concejos = await Concejo.find({ name }).populate('mountains')
+    const concejos = await Concejo.find({ name })
     return res.status(200).json(concejos)
   } catch (error) {
     return res.status(400).json(`Error while filtering by name: ${error}`)

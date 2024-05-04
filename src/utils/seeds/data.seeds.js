@@ -27,7 +27,6 @@ const dataSeeds = async () => {
         )
       )
       newMountain['concejo'] = concejoID[newMountain.concejo]
-      console.log(newMountain)
       newMountain.save()
     }
     Mountain.find().populate('concejo').exec()

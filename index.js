@@ -15,7 +15,7 @@ const PORT = 3000
 /* configurar nuestro server para poder parsear json en el CRUD */
 app.use(express.json())
 /* pupulate DDBB */
-dataSeeds()
+// dataSeeds()
 
 /* rutas */
 app.use('/api/v1/mountains', mountainRoutes)

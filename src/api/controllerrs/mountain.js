@@ -1,4 +1,5 @@
 const Mountain = require('../models/mountain')
+const mongoose = require('mongoose')
 /* GET controller */
 const getMountains = async (req, res, next) => {
   try {
@@ -55,9 +56,11 @@ const deleteMountain = async (req, res, next) => {
 const getByAltitud = async (req, res, next) => {
   try {
     const { altitud } = req.params
-    /* cuando hay muchos registos (millones) es mejor hacer la cnulta a la bbdd que al servidor  {varibale: {$operador: valor}} 
+    /* cuando hay muchos registos (millones) es mejor hacer la consulta a la bbdd que al servidor  {varibale: {$operador: valor}} 
     Operadores [ $eq: equal, $lt:low than, $lte:low than equal, $gt - greater than, $gte: greater than equal, $ne:not equal, $in:in, $nin: not in] */
-    const mountains = await Mountain.find({ altitud: { $gte: altitud } })
+    const mountains = await Mountain.find({
+      altitud: { $gte: altitud }
+    })
     return res.status(200).json(mountains)
   } catch (error) {
     return res.status(400).json(`Error while filtering by altitude: ${error}`)
@@ -66,7 +69,10 @@ const getByAltitud = async (req, res, next) => {
 const getByName = async (req, res, next) => {
   try {
     const { name } = req.params
-    const mountains = await Mountain.find({ name }).populate('concejos')
+    console.log(name)
+    const mountains = await Mountain.find({ name: { $eq: name } }).populate(
+      'concejo'
+    )
     return res.status(200).json(mountains)
   } catch (error) {
     return res.status(400).json(`Error while filtering by name: ${error}`)
@@ -75,9 +81,19 @@ const getByName = async (req, res, next) => {
 const getMoutainByConcejo = async (req, res, next) => {
   try {
     const { concejo } = req.params
-    const selectedMountains = await Mountain.find({ concejo })
-    console.log(`Selected Mountain is: ${selectedMountains}`)
-    return json(selectedMountains._id)
+    const selectedMountains = await Mountain.find().populate({
+      path: 'concejo',
+      match: { name: { $eq: concejo } }
+    })
+    const filteredMountain = selectedMountains.filter(
+      (obj) => obj.concejo !== null
+    )
+    if (!selectedMountains || selectedMountains.length === 0) {
+      return res
+        .status(400)
+        .json(`Error while filtering by concejo. Empty result`)
+    }
+    return res.json(filteredMountain)
   } catch (error) {
     return res.status(400).json(`Error while filtering by concejo: ${error}`)
   }
@@ -85,10 +101,10 @@ const getMoutainByConcejo = async (req, res, next) => {
 const getById = async (req, res, next) => {
   try {
     const { id } = req.params
-    const mountains = await Mountain.find({ id })
+    const mountains = await Mountain.findById(id)
     return res.status(200).json(mountains)
   } catch (error) {
-    return res.status(400).json(`Error while filtering by altitude: ${error}`)
+    return res.status(400).json(`Error while filtering by Id: ${error}`)
   }
 }
 module.exports = {

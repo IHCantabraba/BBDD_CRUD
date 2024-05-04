@@ -1,14 +1,13 @@
 ## Populating BBDD
 
-1. node index.js will call dataSeed fuction to populate the BBDD.
-   Each mountain will have in "concejo" key the complete schema info of concejo
+1. Run Script seeds (npm run seeds) to populate the DB
 
 ## Controllers
 
 ### concejos
 
 GET concejos
-GET By Name
+GET ConcejoByName
 POST concejo
 PUT concejo
 DEL concejo
@@ -17,6 +16,8 @@ DEL concejo
 
 GET Mountains
 GET By altitude
+GET By Id
+GET By Concejo Name
 GET By Name
 POST Mountain
 PUT Mountain
